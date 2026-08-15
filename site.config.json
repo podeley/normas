@@ -1,0 +1,10 @@
+{
+  "origin": "https://podeley.ar",
+  "basePath": "normas",
+  "brand": "Matías Podeley",
+  "repo": "https://github.com/podeley/normas",
+  "ogImage": "/assets/og.png",
+  "langs": ["es"],
+  "nav": [],
+  "backlink": { "href": "https://podeley.ar/energia/", "es": "← podeley.ar", "en": "← podeley.ar" }
+}

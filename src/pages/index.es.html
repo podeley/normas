@@ -1,0 +1,97 @@
+<!--meta
+{
+  "title": "Normativa de hidrocarburos en Argentina — Matías Podeley",
+  "description": "Catálogo navegable de 10,697 normas del sector hidrocarburos: resoluciones, decretos y leyes desde 1854, clasificadas por relevancia y enlazadas al texto oficial."
+}
+-->
+
+<section class="hero wrap">
+  <p class="kicker">Energía · Argentina · Base InfoLEG</p>
+  <h1>10,697 normas de hidrocarburos, en un catálogo que se filtra en segundos.</h1>
+  <p class="hero-sub">Lo que emitieron la Secretaría de Energía, el ENARGAS y sus antecesores desde 1854, catalogado desde la Base InfoLEG y clasificado por reglas: gas, petróleo, ambos o dudosa. Cada norma enlaza a su texto oficial.</p>
+</section>
+
+<div class="rule" role="presentation"></div>
+
+<section class="pd-section wrap wrap--wide" id="explorador">
+  <div class="view-tabs" role="tablist" aria-label="Vistas">
+    <button class="view-tab" id="tab-catalogo" role="tab" aria-selected="true" data-view="catalogo">Catálogo</button>
+    <button class="view-tab" id="tab-wiki" role="tab" aria-selected="false" data-view="wiki">Wiki</button>
+  </div>
+
+  <div id="view-catalogo" role="tabpanel" aria-labelledby="tab-catalogo">
+    <div class="filters" id="filters">
+      <input type="search" id="f-q" placeholder="Buscar por título, número, organismo…" aria-label="Buscar en el catálogo">
+      <select id="f-org" aria-label="Organismo emisor"></select>
+      <select id="f-tipo" aria-label="Tipo de norma"></select>
+      <button class="f-clear" id="f-clear" hidden>Limpiar filtros</button>
+    </div>
+    <div class="legend" id="legend" aria-label="Relevancia (filtra la lista)"></div>
+
+    <figure class="figure figure--chart">
+      <div id="chart" class="chart"></div>
+      <figcaption>
+        Documentos por año de publicación, apilados por relevancia. Un clic en un año filtra la
+        lista; lo fuera de alcance (eléctrico puro) no se grafica pero puede sumarse a la lista
+        con su chip.
+      </figcaption>
+    </figure>
+
+    <div class="results">
+      <div class="list-col">
+        <p class="list-count" id="list-count" role="status"></p>
+        <div id="list" class="list"></div>
+        <button id="list-more" class="list-more" hidden>Mostrar 250 más</button>
+      </div>
+      <aside id="detail" class="detail" hidden aria-label="Detalle del documento"></aside>
+    </div>
+  </div>
+
+  <div id="view-wiki" role="tabpanel" aria-labelledby="tab-wiki" hidden>
+    <div class="wiki-grid">
+      <nav class="wiki-nav" id="wiki-nav" aria-label="Páginas del wiki"></nav>
+      <article class="wiki-page" id="wiki-page">
+        <p class="wiki-hint">El wiki arranca con la Ley 17319 y crece por ingesta continua:
+        cada afirmación cita su fuente en el corpus.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="rule" role="presentation"></div>
+
+<section class="pd-section wrap">
+
+  <div class="findings">
+    <div class="finding">
+      <h3>Dos emisores concentran el 77%</h3>
+      <p>La Secretaría de Energía acumula 4,105 normas; el ENARGAS, 4,092 en solo tres décadas (1993–2026).</p>
+    </div>
+    <div class="finding">
+      <h3>El emisor nuevo ya firma</h3>
+      <p>Desde el Decreto 452/2025 el regulador es el ENReGE, que fusiona gas y electricidad: 146 normas emitidas que exigen separar el alcance una por una.</p>
+    </div>
+    <div class="finding finding--limit">
+      <h3>Publicación no es vigencia</h3>
+      <p>El catálogo muestra qué se emitió, no qué rige hoy: el grafo de modificaciones y derogaciones no está cargado. Y 1,007 normas siguen en dudosa hasta leer su texto.</p>
+    </div>
+  </div>
+
+  <p class="datanote">
+    Datos: <a href="https://datos.jus.gob.ar/dataset/base-de-datos-legislativos-infoleg">Base InfoLEG</a>,
+    Ministerio de Justicia · corte del 1 de agosto de 2026 · clasificación propia por reglas
+    sobre metadatos. Los textos completos viven en servicios.infoleg.gob.ar.
+  </p>
+
+  <div class="cta">
+    <h2>¿El mismo catálogo, con otro alcance?</h2>
+    <p>El pipeline se extiende: BORA diario, resoluciones ENARGAS en PDF, estudios de impacto ambiental provinciales, u otro sector regulado.</p>
+    <div class="cta-actions">
+      <a class="btn btn--primary" href="mailto:mpodeley@gmail.com?subject=normas%20%E2%80%94%20consulta&amp;body=Hola%2C%0A%0A">Escribir</a>
+      <a class="link-plain" href="https://podeley.ar/">Ver los otros casos <span class="arw">→</span></a>
+    </div>
+  </div>
+
+</section>
+
+<script src="/app.js" defer></script>

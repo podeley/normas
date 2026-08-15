@@ -1,0 +1,14 @@
+{
+  "name": "podeley-demo-template",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Starting point for a one-page podeley demo. Copy this directory, rename, edit src/pages/.",
+  "scripts": {
+    "build": "node build.mjs",
+    "serve": "node build.mjs && python3 -m http.server -d dist 8080",
+    "deploy": "node build.mjs && npx --yes gh-pages@6 -d dist -t",
+    "sync": "node tools/sync-identity.mjs",
+    "sync:check": "node tools/sync-identity.mjs --check"
+  }
+}

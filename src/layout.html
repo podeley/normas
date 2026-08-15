@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="{{lang}}" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{title}}</title>
+<meta name="description" content="{{description}}">
+{{canonical}}
+{{alternates}}
+<link rel="icon" href="{{base}}assets/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="podeley.ar">
+<meta property="og:locale" content="{{og_locale}}">
+<meta property="og:title" content="{{title}}">
+<meta property="og:description" content="{{description}}">
+<meta property="og:image" content="{{og_image}}">
+<meta property="og:url" content="{{url}}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{title}}">
+<meta name="twitter:description" content="{{description}}">
+<meta name="twitter:image" content="{{og_image}}">
+<link rel="preload" href="{{base}}fonts/space-grotesk-500.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{base}}fonts/ibm-plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+{{styles}}
+</head>
+<body>
+
+<a class="skip" href="#main">{{skip}}</a>
+
+<header class="masthead">
+  <div class="wrap masthead-inner">
+    <a class="brand" href="{{home}}">
+      <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect width="64" height="64" rx="12" fill="#0f1012"/>
+        <path d="M15 47 V21 L32 37 L49 21 V47" fill="none" stroke="#f4f4f2" stroke-width="4.2" stroke-linejoin="round" stroke-linecap="round"/>
+        <circle cx="15" cy="21" r="3" fill="#4EA8DE"/><circle cx="49" cy="21" r="3" fill="#FF7B54"/>
+        <circle cx="32" cy="37" r="3" fill="#F2C14E"/><circle cx="15" cy="47" r="3" fill="#43C59E"/>
+      </svg>
+      <span class="name">{{brand}}</span>
+    </a>
+    <nav class="nav" aria-label="{{nav_label}}">
+      {{nav}}
+    </nav>
+    {{lang_toggle}}
+  </div>
+</header>
+
+<main id="main">
+{{body}}
+</main>
+
+<footer class="site-footer">
+{{footer}}
+</footer>
+
+</body>
+</html>
