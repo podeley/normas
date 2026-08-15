@@ -1,0 +1,76 @@
+/* ============================================================================
+   tokens.css — podeley.ar portable identity layer
+   Only @font-face + custom properties. No selectors beyond :root / [data-theme].
+   Import this first in any site, then consume via var(--pd-*).
+   Fonts: self-hosted latin-subset woff2 (OFL). IBM Plex Sans & Space Grotesk are
+   variable — one file covers both listed weights.
+   ============================================================================ */
+
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:400;font-display:swap;src:url("../fonts/ibm-plex-mono-400.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:500;font-display:swap;src:url("../fonts/ibm-plex-mono-500.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"IBM Plex Sans";font-style:normal;font-weight:400;font-display:swap;src:url("../fonts/ibm-plex-sans-400.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"IBM Plex Sans";font-style:normal;font-weight:600;font-display:swap;src:url("../fonts/ibm-plex-sans-400.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Space Grotesk";font-style:normal;font-weight:500;font-display:swap;src:url("../fonts/space-grotesk-500.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:"Space Grotesk";font-style:normal;font-weight:700;font-display:swap;src:url("../fonts/space-grotesk-500.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+
+:root{
+  /* brand constants — identical in both themes */
+  --pd-blue:#4EA8DE; --pd-orange:#FF7B54; --pd-green:#43C59E; --pd-gold:#F2C14E;
+  --pd-near-black:#0f1012; --pd-off-white:#f4f4f2;
+  --pd-blue-ink:#1f6a9b; --pd-orange-ink:#c24b22; --pd-green-ink:#147a5f; --pd-gold-ink:#8a6412;
+  --pd-blue-lit:#7cc0e8; --pd-orange-lit:#ff9576; --pd-green-lit:#5fd3ae; --pd-gold-lit:#f5cf72;
+
+  /* type */
+  --pd-font-display:"Space Grotesk",ui-sans-serif,system-ui,sans-serif;
+  --pd-font-body:"IBM Plex Sans",ui-sans-serif,system-ui,"Segoe UI",Roboto,sans-serif;
+  --pd-font-mono:"IBM Plex Mono",ui-monospace,"Roboto Mono",Menlo,monospace;
+  --pd-fs-h1:clamp(2.1rem,1.5rem + 3.6vw,3.3rem);
+  --pd-fs-h2:clamp(1.5rem,1.2rem + 1.6vw,2rem);
+  --pd-fs-h3:clamp(1.08rem,1rem + .5vw,1.28rem);
+  --pd-fs-lead:clamp(1.02rem,.98rem + .4vw,1.18rem);
+  --pd-fs-sm:.875rem; --pd-fs-cap:.72rem;
+  --pd-lh-tight:1.14; --pd-lh-body:1.62; --pd-track-mono:.06em;
+
+  /* spacing / layout */
+  --pd-sp-1:.25rem;--pd-sp-2:.5rem;--pd-sp-3:.75rem;--pd-sp-4:1rem;--pd-sp-5:1.5rem;
+  --pd-sp-6:2rem;--pd-sp-7:3rem;--pd-sp-8:4rem;
+  --pd-section:clamp(4rem,8vw,7rem); --pd-maxw:66rem; --pd-maxw-wide:78rem; --pd-gutter:clamp(1.1rem,4vw,2rem);
+
+  /* radii */
+  --pd-r-1:.35rem; --pd-r-2:.6rem; --pd-r-3:.9rem; --pd-r-pill:999px;
+
+  /* motion */
+  --pd-ease:cubic-bezier(.2,.6,.2,1); --pd-dur-1:120ms; --pd-dur-2:220ms;
+}
+
+/* ---- DARK (canonical) ---- */
+:root,[data-theme="dark"]{
+  --pd-bg:#0f172a; --pd-surface:#1e293b; --pd-surface-2:#172033; --pd-data-bg:#0b1324;
+  --pd-border:#334155; --pd-border-soft:#26344a;
+  --pd-text:#f1f5f9; --pd-text-muted:#9fb0c6; --pd-text-faint:#64748b;
+  --pd-primary:var(--pd-blue); --pd-link:var(--pd-blue-lit); --pd-focus:var(--pd-blue-lit);
+  --pd-caveat:var(--pd-gold);
+  --pd-btn-primary-bg:var(--pd-blue); --pd-btn-primary-fg:#06121f;
+  --pd-shadow-card:0 1px 2px rgba(0,0,0,.5);
+  --pd-shadow-card-hover:0 2px 6px rgba(0,0,0,.55),0 14px 34px -22px rgba(0,0,0,.9);
+  --pd-rule:120,140,170; --pd-rule-alpha:.16;
+  --pd-grad-a:color-mix(in srgb,var(--pd-blue) 72%,var(--pd-text));
+  --pd-grad-b:color-mix(in srgb,var(--pd-orange) 72%,var(--pd-text));
+}
+
+/* ---- LIGHT ---- */
+[data-theme="light"]{
+  --pd-bg:#ffffff; --pd-surface:#ffffff; --pd-surface-2:#f6f7f8; --pd-data-bg:#f6f7f8;
+  --pd-border:#d9dce0; --pd-border-soft:#e8eaed;
+  --pd-text:#16181d; --pd-text-muted:#4a5361; --pd-text-faint:#6b7280;
+  --pd-primary:var(--pd-orange-ink); --pd-link:var(--pd-orange-ink); --pd-focus:var(--pd-orange-ink);
+  --pd-caveat:var(--pd-gold-ink);
+  --pd-btn-primary-bg:var(--pd-orange-ink); --pd-btn-primary-fg:#ffffff;
+  --pd-shadow-card:none;
+  --pd-shadow-card-hover:none;
+  --pd-rule:110,116,128; --pd-rule-alpha:.18;
+  --pd-grad-a:color-mix(in srgb,var(--pd-blue) 78%,var(--pd-text));
+  --pd-grad-b:color-mix(in srgb,var(--pd-orange) 78%,var(--pd-text));
+}
+
+@media (prefers-reduced-motion: reduce){ :root{ --pd-dur-1:0ms; --pd-dur-2:0ms; } }

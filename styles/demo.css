@@ -1,0 +1,137 @@
+/* ============================================================================
+   demo.css — the one-page demo blocks. Load after tokens.css + chrome.css.
+
+   A demo is one page and always the same shape:
+     hero → rule → figure → findings → data note → CTA
+   The figure is the only heavy thing on the page. Everything else is text.
+   ============================================================================ */
+
+/* ---------- back to the portfolio ----------------------------------------- */
+/* Every demo is an entry point from WhatsApp or LinkedIn, so it must lead back
+   to podeley.ar — that is the funnel, not decoration. */
+
+.backlink {
+  font-family: var(--pd-font-mono); font-size: var(--pd-fs-cap);
+  letter-spacing: .04em; color: var(--pd-text-faint);
+  text-decoration: none; white-space: nowrap;
+  transition: color var(--pd-dur-2);
+}
+.backlink:hover { color: var(--pd-link); }
+
+/* ---------- the figure ----------------------------------------------------- */
+
+.figure {
+  margin: 0;
+  border: 1px solid var(--pd-border-soft);
+  border-radius: var(--pd-r-2);
+  background: var(--pd-surface-2);
+  overflow: hidden;
+}
+/* Descendiente, no hijo directo: la imagen suele ir envuelta en el <a> que la
+   abre a tamaño completo, y con `>` quedaba sin ancho y la recortaba el
+   overflow del contenedor. */
+.figure :is(img, svg, canvas) {
+  display: block; width: 100%; height: auto;
+}
+/* Maps and interactive charts arrive as an iframe or a mounted div. They need
+   an explicit box: 16:10 on a laptop, taller on a phone, and never so tall
+   that the page's own scroll gets trapped. */
+.figure > iframe,
+.figure > .figure-mount {
+  display: block; width: 100%; border: 0;
+  aspect-ratio: 16 / 10;
+  max-height: 78vh;
+}
+.figure figcaption {
+  border-top: 1px solid var(--pd-border-soft);
+  padding: .7rem 1rem;
+  font-family: var(--pd-font-mono); font-size: var(--pd-fs-cap);
+  line-height: 1.6; color: var(--pd-text-faint);
+  letter-spacing: .03em;
+}
+
+/* Una figura apaisada y densa metida en 375 px es ilegible, y la figura es el
+   contenido de la demo. Envolver la imagen en un <a> al archivo permite abrirla
+   a tamaño completo y hacer pinch-zoom, que es como se mira un gráfico denso en
+   un teléfono. El aviso aparece sólo donde hace falta. */
+.figure > a { display: block; }
+.figure__hint { display: none; }
+@media (max-width: 760px) {
+  .figure__hint {
+    display: block;
+    margin-top: .35rem;
+    color: var(--pd-link);
+    font-weight: 500;
+  }
+}
+
+/* ---------- findings ------------------------------------------------------- */
+/* Three one-liners under a coloured rule — the print brochure's three-up. */
+
+.findings {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: var(--pd-sp-5); margin-top: var(--pd-sp-6);
+}
+.finding {
+  border-top: 2px solid var(--pd-orange-ink);
+  padding-top: var(--pd-sp-3); margin: 0;
+}
+.finding:nth-child(2) { border-top-color: var(--pd-blue-ink); }
+.finding:nth-child(3) { border-top-color: var(--pd-green-ink); }
+.finding h3 {
+  font-family: var(--pd-font-display); font-weight: 500;
+  font-size: var(--pd-fs-h3); line-height: 1.25; margin: 0 0 .35rem;
+}
+.finding p {
+  margin: 0; color: var(--pd-text-muted);
+  font-size: var(--pd-fs-sm); line-height: 1.55;
+}
+/* A finding that reports a limit or a null result — the honest one. */
+.finding--limit { border-top-color: var(--pd-gold-ink); }
+.finding--limit h3 { color: var(--pd-caveat); }
+
+/* ---------- data note ------------------------------------------------------ */
+/* The cut-off has to be visible. Unstated, a 2024 figure reads as a stale
+   number instead of an invitation to ask for the current one. */
+
+.datanote {
+  margin: var(--pd-sp-6) 0 0;
+  border-left: 2px solid var(--pd-border);
+  padding: .1rem 0 .1rem .9rem;
+  font-family: var(--pd-font-mono); font-size: var(--pd-fs-cap);
+  line-height: 1.7; color: var(--pd-text-faint); letter-spacing: .03em;
+  max-width: 68ch;
+}
+.datanote strong { color: var(--pd-text-muted); font-weight: 500; }
+.datanote a { color: var(--pd-text-muted); }
+
+/* ---------- the CTA -------------------------------------------------------- */
+/* The whole point of the demo. Brochure .box treatment. */
+
+.cta {
+  margin-top: var(--pd-sp-7);
+  background: var(--pd-surface-2);
+  border: 1px solid var(--pd-border-soft);
+  border-radius: var(--pd-r-2);
+  padding: var(--pd-sp-5) var(--pd-sp-5) var(--pd-sp-5);
+}
+.cta h2 {
+  font-family: var(--pd-font-display); font-weight: 500;
+  font-size: var(--pd-fs-h3); line-height: 1.25; margin: 0 0 .5rem;
+}
+.cta p {
+  margin: 0 0 var(--pd-sp-4); color: var(--pd-text-muted);
+  font-size: var(--pd-fs-sm); line-height: 1.6; max-width: 60ch;
+}
+.cta-actions { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; }
+
+/* ---------- responsive ----------------------------------------------------- */
+
+@media (max-width: 860px) {
+  .findings { grid-template-columns: 1fr; gap: var(--pd-sp-4); }
+}
+@media (max-width: 760px) {
+  /* On a phone a 16:10 map is a letterbox slit — give it portrait height. */
+  .figure > iframe,
+  .figure > .figure-mount { aspect-ratio: 3 / 4; max-height: 72vh; }
+}
