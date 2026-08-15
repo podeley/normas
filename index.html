@@ -4,19 +4,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Normativa de hidrocarburos en Argentina — Matías Podeley</title>
-<meta name="description" content="Catálogo navegable de 10,697 normas del sector hidrocarburos: resoluciones, decretos y leyes desde 1854, clasificadas por relevancia y enlazadas al texto oficial.">
+<meta name="description" content="13,728 normas del sector hidrocarburos con sus vínculos: qué resoluciones tocaron a qué empresas, grafo de relaciones, señales de mercado y catálogo filtrable.">
 <link rel="canonical" href="https://podeley.ar/normas/">
 <link rel="icon" href="/normas/assets/favicon.svg">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="podeley.ar">
 <meta property="og:locale" content="es_AR">
 <meta property="og:title" content="Normativa de hidrocarburos en Argentina — Matías Podeley">
-<meta property="og:description" content="Catálogo navegable de 10,697 normas del sector hidrocarburos: resoluciones, decretos y leyes desde 1854, clasificadas por relevancia y enlazadas al texto oficial.">
+<meta property="og:description" content="13,728 normas del sector hidrocarburos con sus vínculos: qué resoluciones tocaron a qué empresas, grafo de relaciones, señales de mercado y catálogo filtrable.">
 <meta property="og:image" content="https://podeley.ar/normas/assets/og.png">
 <meta property="og:url" content="https://podeley.ar/normas/">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Normativa de hidrocarburos en Argentina — Matías Podeley">
-<meta name="twitter:description" content="Catálogo navegable de 10,697 normas del sector hidrocarburos: resoluciones, decretos y leyes desde 1854, clasificadas por relevancia y enlazadas al texto oficial.">
+<meta name="twitter:description" content="13,728 normas del sector hidrocarburos con sus vínculos: qué resoluciones tocaron a qué empresas, grafo de relaciones, señales de mercado y catálogo filtrable.">
 <meta name="twitter:image" content="https://podeley.ar/normas/assets/og.png">
 <link rel="preload" href="/normas/fonts/space-grotesk-500.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/normas/fonts/ibm-plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
@@ -50,8 +50,8 @@
 <main id="main">
 <section class="hero wrap">
   <p class="kicker">Energía · Argentina · Base InfoLEG</p>
-  <h1>10,697 normas de hidrocarburos, en un catálogo que se filtra en segundos.</h1>
-  <p class="hero-sub">Lo que emitieron la Secretaría de Energía, el ENARGAS y sus antecesores desde 1854, catalogado desde la Base InfoLEG y clasificado por reglas: gas, petróleo, ambos o dudosa. Cada norma enlaza a su texto oficial.</p>
+  <h1>13,728 normas de hidrocarburos, con nombre y apellido.</h1>
+  <p class="hero-sub">Lo que emitieron la Secretaría de Energía, el ENARGAS y sus antecesores desde 1854, cruzado con las 1,966 empresas que esas normas nombran: quién recibió cada concesión, cesión, sanción o cuadro tarifario. Un grafo de vínculos, señales de mercado y el catálogo entero, filtrable.</p>
 </section>
 
 <div class="rule" role="presentation"></div>
@@ -59,6 +59,8 @@
 <section class="pd-section wrap wrap--wide" id="explorador">
   <div class="view-tabs" role="tablist" aria-label="Vistas">
     <button class="view-tab" id="tab-catalogo" role="tab" aria-selected="true" data-view="catalogo">Catálogo</button>
+    <button class="view-tab" id="tab-grafo" role="tab" aria-selected="false" data-view="grafo">Grafo</button>
+    <button class="view-tab" id="tab-senales" role="tab" aria-selected="false" data-view="senales">Señales</button>
     <button class="view-tab" id="tab-wiki" role="tab" aria-selected="false" data-view="wiki">Wiki</button>
   </div>
 
@@ -70,6 +72,7 @@
       <button class="f-clear" id="f-clear" hidden>Limpiar filtros</button>
     </div>
     <div class="legend" id="legend" aria-label="Relevancia (filtra la lista)"></div>
+    <div id="ent-pill"></div>
 
     <figure class="figure figure--chart">
       <div id="chart" class="chart"></div>
@@ -90,6 +93,36 @@
     </div>
   </div>
 
+  <div id="view-grafo" role="tabpanel" aria-labelledby="tab-grafo" hidden>
+    <div class="graph-bar">
+      <input type="search" id="g-q" list="g-nodes" placeholder="Buscar entidad…" aria-label="Buscar entidad en el grafo">
+      <datalist id="g-nodes"></datalist>
+      <span class="graph-legend">
+        <span><i class="gl gl-org"></i>organismos</span>
+        <span><i class="gl gl-company"></i>empresas</span>
+        <span><i class="gl gl-tema"></i>instrumentos</span>
+        <span><i class="gl gl-area"></i>áreas</span>
+      </span>
+    </div>
+    <figure class="figure figure--graph">
+      <div class="graph-wrap">
+        <canvas id="graph"></canvas>
+        <aside id="ficha" class="ficha" hidden aria-label="Ficha de la entidad"></aside>
+      </div>
+      <figcaption>
+        Cada arista es co-aparición en las mismas normas; su grosor, cuántas. Arrastrar mueve,
+        la rueda hace zoom, un clic abre la ficha. Los vínculos salen de títulos y resúmenes
+        oficiales: una empresa puede operar años sin que un título la nombre.
+      </figcaption>
+    </figure>
+  </div>
+
+  <div id="view-senales" role="tabpanel" aria-labelledby="tab-senales" hidden>
+    <p class="senales-intro">Señales computadas del catálogo, sin curaduría manual: lo que los
+    metadatos permiten afirmar, con cada norma a un clic del texto oficial.</p>
+    <div class="senales-grid" id="senales-grid"></div>
+  </div>
+
   <div id="view-wiki" role="tabpanel" aria-labelledby="tab-wiki" hidden>
     <div class="wiki-grid">
       <nav class="wiki-nav" id="wiki-nav" aria-label="Páginas del wiki"></nav>
@@ -107,27 +140,27 @@
 
   <div class="findings">
     <div class="finding">
-      <h3>Dos emisores concentran el 77%</h3>
-      <p>La Secretaría de Energía acumula 4,105 normas; el ENARGAS, 4,092 en solo tres décadas (1993–2026).</p>
+      <h3>El regulador nombra; la Secretaría reparte</h3>
+      <p>Las 4,092 resoluciones del ENARGAS concentran tarifas y sanciones a licenciatarias; concesiones, cesiones y adjudicaciones salen de la Secretaría de Energía y del Ejecutivo.</p>
     </div>
     <div class="finding">
-      <h3>El emisor nuevo ya firma</h3>
-      <p>Desde el Decreto 452/2025 el regulador es el ENReGE, que fusiona gas y electricidad: 146 normas emitidas que exigen separar el alcance una por una.</p>
+      <h3>Las señales llegan antes que la noticia</h3>
+      <p>La primera aparición de una empresa en un título oficial anticipa su entrada al mercado: VMOS aparece en marzo de 2025, Southern Energy en abril, y el RIGI ya acumula 39 normas.</p>
     </div>
     <div class="finding finding--limit">
-      <h3>Publicación no es vigencia</h3>
-      <p>El catálogo muestra qué se emitió, no qué rige hoy: el grafo de modificaciones y derogaciones no está cargado. Y 1,007 normas siguen en dudosa hasta leer su texto.</p>
+      <h3>Metadatos, no texto completo</h3>
+      <p>Publicación no es vigencia (el grafo de modificatorias no está cargado), y los vínculos salen de títulos y resúmenes: la ausencia de una empresa no prueba inactividad. 1,040 normas siguen en dudosa.</p>
     </div>
   </div>
 
   <p class="datanote">
     Datos: <a href="https://datos.jus.gob.ar/dataset/base-de-datos-legislativos-infoleg">Base InfoLEG</a>,
-    Ministerio de Justicia · corte del 1 de agosto de 2026 · clasificación propia por reglas
-    sobre metadatos. Los textos completos viven en servicios.infoleg.gob.ar.
+    Ministerio de Justicia · corte del 1 de agosto de 2026 · clasificación, entidades y vínculos
+    extraídos por reglas sobre metadatos. Los textos completos viven en servicios.infoleg.gob.ar.
   </p>
 
   <div class="cta">
-    <h2>¿El mismo catálogo, con otro alcance?</h2>
+    <h2>¿El mismo mapa, con otro alcance?</h2>
     <p>El pipeline se extiende: BORA diario, resoluciones ENARGAS en PDF, estudios de impacto ambiental provinciales, u otro sector regulado.</p>
     <div class="cta-actions">
       <a class="btn btn--primary" href="mailto:mpodeley@gmail.com?subject=normas%20%E2%80%94%20consulta&amp;body=Hola%2C%0A%0A">Escribir</a>

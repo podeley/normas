@@ -1,0 +1,212 @@
+{
+ "generado": "2026-08-15",
+ "nuevos_jugadores": [
+  {
+   "id": "c:sidersa",
+   "label": "Sidersa",
+   "n": 3,
+   "first": "2025-07-22",
+   "docs": [
+    "infoleg-426430",
+    "infoleg-421422",
+    "infoleg-415410"
+   ]
+  },
+  {
+   "id": "c:petromining",
+   "label": "Petromining",
+   "n": 2,
+   "first": "2025-05-30",
+   "docs": [
+    "infoleg-414902",
+    "infoleg-413377"
+   ]
+  },
+  {
+   "id": "c:compania-entrerriana-de-gas",
+   "label": "Compania Entrerriana de Gas",
+   "n": 13,
+   "first": "2025-04-30",
+   "docs": [
+    "infoleg-425318",
+    "infoleg-424347",
+    "infoleg-423472",
+    "infoleg-422793"
+   ]
+  },
+  {
+   "id": "c:southern-energy",
+   "label": "Southern Energy",
+   "n": 3,
+   "first": "2025-04-28",
+   "docs": [
+    "infoleg-416803",
+    "infoleg-412353",
+    "infoleg-412158"
+   ]
+  },
+  {
+   "id": "c:vmos",
+   "label": "VMOS",
+   "n": 2,
+   "first": "2025-03-21",
+   "docs": [
+    "infoleg-421557",
+    "infoleg-410830"
+   ]
+  },
+  {
+   "id": "c:luz-del-campo",
+   "label": "Luz del Campo",
+   "n": 2,
+   "first": "2025-01-08",
+   "docs": [
+    "infoleg-417135",
+    "infoleg-408210"
+   ]
+  }
+ ],
+ "rigi": {
+  "total": 25,
+  "docs": [
+   "infoleg-427918",
+   "infoleg-427059",
+   "infoleg-426430",
+   "infoleg-425962",
+   "infoleg-425734",
+   "infoleg-423535",
+   "infoleg-423212",
+   "infoleg-421422",
+   "infoleg-420421",
+   "infoleg-415410",
+   "infoleg-412353",
+   "infoleg-412286"
+  ]
+ },
+ "exportacion_12m": {
+  "total": 16,
+  "docs": [
+   "infoleg-428036",
+   "infoleg-427918",
+   "infoleg-427059",
+   "infoleg-425952",
+   "infoleg-423274",
+   "infoleg-422817",
+   "infoleg-422707",
+   "infoleg-422546",
+   "infoleg-421898",
+   "infoleg-421899",
+   "infoleg-420758",
+   "infoleg-420707"
+  ]
+ },
+ "gnl": {
+  "total": 10,
+  "docs": [
+   "infoleg-427059",
+   "infoleg-423023",
+   "infoleg-421656",
+   "infoleg-416947",
+   "infoleg-416803",
+   "infoleg-414699",
+   "infoleg-412353",
+   "infoleg-412288",
+   "infoleg-412158",
+   "infoleg-411302"
+  ]
+ },
+ "cesiones_12m": {
+  "total": 3,
+  "docs": [
+   "infoleg-427319",
+   "infoleg-426906",
+   "infoleg-418095"
+  ]
+ },
+ "adjudicaciones_12m": {
+  "total": 2,
+  "docs": [
+   "infoleg-427661",
+   "infoleg-427516"
+  ]
+ },
+ "comercializadores": {
+  "total": 20,
+  "docs": [
+   "infoleg-427891",
+   "infoleg-427776",
+   "infoleg-427401",
+   "infoleg-426541",
+   "infoleg-426509",
+   "infoleg-425509",
+   "infoleg-425182",
+   "infoleg-424395",
+   "infoleg-424090",
+   "infoleg-423997",
+   "infoleg-423183",
+   "infoleg-423023"
+  ]
+ },
+ "mas_reguladas_12m": [
+  {
+   "id": "c:naturgy-ban",
+   "label": "Naturgy BAN",
+   "n": 22,
+   "prev": 26
+  },
+  {
+   "id": "c:ecogas-cuyana",
+   "label": "Ecogas Cuyana",
+   "n": 14,
+   "prev": 13
+  },
+  {
+   "id": "c:camuzzi-sur",
+   "label": "Camuzzi Gas del Sur",
+   "n": 14,
+   "prev": 14
+  },
+  {
+   "id": "c:refinor",
+   "label": "Refinor",
+   "n": 13,
+   "prev": 10
+  },
+  {
+   "id": "c:enarsa",
+   "label": "ENARSA",
+   "n": 13,
+   "prev": 9
+  },
+  {
+   "id": "c:ecogas-centro",
+   "label": "Ecogas Centro",
+   "n": 13,
+   "prev": 13
+  },
+  {
+   "id": "c:ypf",
+   "label": "YPF",
+   "n": 12,
+   "prev": 21
+  },
+  {
+   "id": "c:gasandes",
+   "label": "GasAndes",
+   "n": 12,
+   "prev": 9
+  },
+  {
+   "id": "c:norandino",
+   "label": "Gasoducto Norandino",
+   "n": 12,
+   "prev": 7
+  },
+  {
+   "id": "c:gasnea",
+   "label": "Gasnea",
+   "n": 12,
+   "prev": 13
+  }
+ ]
+}
