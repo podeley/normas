@@ -1,6 +1,38 @@
 {
- "generado": "2026-08-15",
+ "generado": "2026-08-17",
+ "enriquecidos": 3677,
  "nuevos_jugadores": [
+  {
+   "id": "c:qp-oil-and-gas",
+   "label": "Qp Oil And Gas",
+   "n": 2,
+   "first": "2026-03-20",
+   "docs": [
+    "infoleg-424640",
+    "infoleg-424104"
+   ]
+  },
+  {
+   "id": "c:tullow-argentina",
+   "label": "Tullow Argentina",
+   "n": 2,
+   "first": "2025-11-14",
+   "docs": [
+    "infoleg-420294",
+    "infoleg-420207"
+   ]
+  },
+  {
+   "id": "c:opessa",
+   "label": "Opessa",
+   "n": 3,
+   "first": "2025-08-19",
+   "docs": [
+    "infoleg-419599",
+    "infoleg-419047",
+    "infoleg-416540"
+   ]
+  },
   {
    "id": "c:sidersa",
    "label": "Sidersa",
@@ -53,6 +85,16 @@
    "docs": [
     "infoleg-421557",
     "infoleg-410830"
+   ]
+  },
+  {
+   "id": "c:enel",
+   "label": "Enel",
+   "n": 2,
+   "first": "2025-01-31",
+   "docs": [
+    "infoleg-413729",
+    "infoleg-408942"
    ]
   },
   {
@@ -123,6 +165,92 @@
    "infoleg-418095"
   ]
  },
+ "cesiones_pares": [
+  {
+   "d": "infoleg-87845",
+   "de": "c:chevron",
+   "a": "c:desarrollos-petroleros-y-ganaderos",
+   "f": "2003-08"
+  },
+  {
+   "d": "infoleg-87297",
+   "de": "c:tecpetrol",
+   "a": "c:santa-fe",
+   "f": "2003-08"
+  },
+  {
+   "d": "infoleg-87299",
+   "de": "c:petragas",
+   "a": "c:chevron",
+   "f": "2003-08"
+  },
+  {
+   "d": "infoleg-65898",
+   "de": "c:ypf",
+   "a": "c:bg-exploration-and-production",
+   "f": "2001-01"
+  },
+  {
+   "d": "infoleg-64913",
+   "de": "c:petragas",
+   "a": "c:astra-compania-argentina-de-petroleo",
+   "f": "2000-11"
+  },
+  {
+   "d": "infoleg-64945",
+   "de": "c:benito-roggio-e-hijos",
+   "a": "c:austrofueguina",
+   "f": "2000-07"
+  },
+  {
+   "d": "infoleg-64946",
+   "de": "c:ypf",
+   "a": "c:pan-american-continental",
+   "f": "2000-07"
+  },
+  {
+   "d": "infoleg-64938",
+   "de": "c:ypf",
+   "a": "c:unocal-patagonia",
+   "f": "2000-02"
+  },
+  {
+   "d": "infoleg-64939",
+   "de": "c:cgc",
+   "a": "c:san-jorge",
+   "f": "2000-02"
+  },
+  {
+   "d": "infoleg-64937",
+   "de": "c:irhe-holdings",
+   "a": "c:ypf",
+   "f": "2000-02"
+  },
+  {
+   "d": "infoleg-64972",
+   "de": "c:ypf",
+   "a": "c:oilgener-argentina",
+   "f": "1999-12"
+  },
+  {
+   "d": "infoleg-59510",
+   "de": "c:tecpetrol",
+   "a": "c:pioneer-natural-resources",
+   "f": "1999-08"
+  },
+  {
+   "d": "infoleg-58542",
+   "de": "c:operaciones-especiales-argentinas",
+   "a": "c:petrolera-argentina-san-jorge",
+   "f": "1999-07"
+  },
+  {
+   "d": "infoleg-57997",
+   "de": "c:amploex",
+   "a": "c:petrolera-argentina-san-jorge",
+   "f": "1999-06"
+  }
+ ],
  "adjudicaciones_12m": {
   "total": 2,
   "docs": [

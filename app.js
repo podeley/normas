@@ -303,14 +303,16 @@
     const rows = [
       ['Fecha', d.fecha || 's/f'], ['Organismo', d.organismo],
       ['Tipo', d.tipo_norma], ['Número', d.numero],
-      ['Relevancia', LABELS[d.relevance] || d.relevance],
+      ['Acción', d.acc ? d.acc.replace(/_/g, ' ') : null],
+      ['Relevancia', (LABELS[d.relevance] || d.relevance) + (d.rel_auto ? ' (triage automático)' : '')],
       ['Estado', d.state === 'ingested' ? 'ingerida al wiki' : d.state],
       ['ID', d.doc_id],
     ].filter(([, v]) => v)
     const chips = (d.e || []).map((id) => {
       const e = entById.get(id)
       if (!e) return ''
-      return `<button data-ent="${esc(id)}"><i style="background:${KIND_COLORS[e.kind]}"></i>${esc(e.label)}</button>`
+      const role = (d.er || {})[id]
+      return `<button data-ent="${esc(id)}"><i style="background:${KIND_COLORS[e.kind]}"></i>${esc(e.label)}${role ? ` · ${esc(role)}` : ''}</button>`
     }).join('')
     el.innerHTML = `<button class="detail-close" id="d-close" aria-label="Cerrar">×</button>
       <h3>${esc(d.titulo || d.doc_id)}</h3>
@@ -598,6 +600,7 @@
       <p class="ficha-kind">${KIND_LABELS[e.kind] || e.kind}</p>
       <h3>${esc(e.label)}</h3>
       <p class="ficha-stats">${fmt(e.n)} normas${e.first ? ` · ${e.first.slice(0, 7)} → ${e.last.slice(0, 7)}` : ''}</p>
+      ${e.roles ? `<p class="ficha-stats">${Object.entries(e.roles).map(([r, n]) => `${esc(r)} ${n}`).join(' · ')}</p>` : ''}
       ${e.years ? sparkline(e.years, KIND_COLORS[e.kind]) : ''}
       ${co ? `<h4>Co-apariciones</h4><div class="co-chips">${co}</div>` : ''}
       <h4>Últimas normas</h4>
@@ -647,6 +650,15 @@
       <p class="senal-big">${fmt(card.total)}</p><p class="senal-sub">${sub}</p>
       <ul>${card.docs.slice(0, 5).map(docItem).join('')}</ul>
       <ul><li><button data-entcat="${entId}">Ver todas en el catálogo →</button></li></ul></div>`
+
+    if (s.cesiones_pares && s.cesiones_pares.length) {
+      const lbl = (id) => { const e = entById.get(id); return e ? e.label : id }
+      cards.push(`<div class="senal"><h3>Quién cedió a quién</h3>
+        <p class="senal-sub">cedente → cesionaria, extraído por LLM de los metadatos</p>
+        <ul>${s.cesiones_pares.map((p) => `
+          <li><button data-doc="${esc(p.d)}"><span class="s-meta">${esc(p.f)}</span>
+          <strong>${esc(lbl(p.de))}</strong> → <strong>${esc(lbl(p.a))}</strong></button></li>`).join('')}</ul></div>`)
+    }
 
     cards.push(temaCard('RIGI', 'normas que lo mencionan, todo el período', s.rigi, 't:rigi'))
     cards.push(temaCard('Exportación', 'autorizaciones y normas de los últimos 12 meses', s.exportacion_12m, 't:exportacion'))
